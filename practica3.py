@@ -1,5 +1,5 @@
 def mas_repetido(matriz):
-    pass
+    print("hola")
 
 def condensa(cadena):
 	if cadena:
