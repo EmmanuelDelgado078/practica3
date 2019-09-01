@@ -15,13 +15,73 @@ def condensa(cadena):
 			lista.append((cadena[0], ocurrencias))
 			cadena = cadena.replace(cadena[0], "", ocurrencias)
 			ocurrencias = 0
-		return lista
+		for i in range(len(lista)):
+			print (lista[i])
 	else:
 		return []
 
 def triangulo_pascal(niveles):
-    lista = []
-    lista.append()
+	if niveles > 0:
+	    if niveles == 0:
+	        return []
+	    elif niveles == 1:
+	        return [[1]]
+	    else:
+	        lista_1 = [1]
+	        resultado = triangulo_pascal(niveles-1)
+	        lista_2 = resultado[-1]
+	        for i in range(len(lista_2)-1):
+	            lista_1.append(lista_2[i] + lista_2[i+1])
+	        lista_1 += [1]
+	        resultado.append(lista_1)
+	    return resultado
+	else:
+		print("No existen niveles negativos")
 
 def subcadenas(cadena):
     pass
+
+def mas_repetido_s():
+	print("Por favor ingresa la matriz")
+	y = input()
+	mas_repetido(y)
+
+def condensa_s():
+	print("Por favor ingresa la cadena")
+	n = input()
+	condensa(n)
+
+def triangulo_s():
+	print("Por favor ingresa el nivel al que quieres llegar")
+	m = input()
+	triangulo_pascal(m)
+
+def subcadenas_s():
+	print("Por favor ingresa la cadena")
+	x = input()
+	condensa(x)
+
+def checar_funcion(n):
+	switcher = {
+		1: mas_repetido_s,
+		2: condensa_s,
+		3: triangulo_s,
+		4: subcadenas_s
+	}
+	funcion = switcher.get(n, "Por favor ingresa un número válido")
+	#funcion = switcher[n]
+	funcion()
+	main()
+
+def main():
+	print("\n¡Bienvenido al programa!")
+	print("Por favor ingresa el número que corresponda a la función que quieres utilizar\n\n")
+	print("1. Más repetido: esta función encuentra el valor que más repeticiones tiene en una matriz. Si dos números aparecen la misma cantidad de veces, devuelve el que aparece primero\n\n")
+	print("2. Condensa: Esta función devuelve una lista con la letra y la cantidad de veces que aparece\n\n")
+	print("3. Triangulo de pascal: esta función delvuelve una lista con los niveles del triangulo de pascal\n\n")
+	print("4. subcadenas: Esta función devuelve una lista con la cadena dividida en subcadenas de tamaño i\n\n")
+	z = int(input())
+	checar_funcion(z)
+
+if __name__ == "__main__":
+	main()
