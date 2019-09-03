@@ -15,8 +15,7 @@ def condensa(cadena):
 			lista.append((cadena[0], ocurrencias))
 			cadena = cadena.replace(cadena[0], "", ocurrencias)
 			ocurrencias = 0
-		for i in range(len(lista)):
-		print(lista[i])
+		for i in range(len(lista)):    print (lista[i])
 
 	else:
 		print([])
@@ -35,12 +34,11 @@ def triangulo_pascal(niveles):
 	            lista_1.append(lista_2[i] + lista_2[i+1])
 	        lista_1 += [1]
 	        resultado.append(lista_1)
-	    return resultado
+	    for i in range(len(resultado)):    print (resultado[i])	
 	else:
 		print("No existen niveles negativos")
 
 def subcadenas(cadena):
-
 	if cadena == []:
 		return [[]]
 	ll = lattice(cadena[1:])
@@ -52,22 +50,27 @@ def mas_repetido_s():
 	print("Por favor ingresa la matriz")
 	y = input()
 	mas_repetido(y)
+	main_aux()
 
 def condensa_s():
 	print("Por favor ingresa la cadena")
 	n = input()
 	condensa(n)
+	main_aux()
 
 def triangulo_s():
 	print("Por favor ingresa el nivel al que quieres llegar")
 	m = input()
 	triangulo_pascal(m)
+	main_aux()
 
 def subcadenas_s():
 	print("dame la cadena con esta estructura ['caracter','caracter','caracter']" +
     " con tantos caracteres como desees separados por comas u entre comillas simples")
 	x = input()
 	subcadenas(x)
+	main_aux()
+
 
 def checar_funcion(n):
 	switcher = {
@@ -77,11 +80,22 @@ def checar_funcion(n):
 		4: subcadenas_s
 	}
 
-	funcion = switcher.get(n, "Por favor ingresa un numero valido")
-
-	#funcion = switcher[n]
+	funcion = switcher.get(n, "Por favor ingresa un número válido")
 	funcion()
 	main()
+
+def main_aux():
+	print("¿Deseas continuar? S/n")
+	z = input()
+	z.lower()
+	if z == "s":
+		main()
+	elif z == "n":
+		sys.exit()
+	else:
+		"Por favor elige una opción válida"
+		main_aux()
+
 
 def main():
 	print("\n¡Bienvenido al programa!")
