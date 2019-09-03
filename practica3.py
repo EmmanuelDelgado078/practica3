@@ -38,7 +38,7 @@ def triangulo_pascal(niveles):
 		print("No existen niveles negativos")
 
 def subcadenas(cadena):
-    if cadena == []:
+	if cadena == []:
 		return [[]]
 	ll = lattice(cadena[1:])
 	a =([e+[cadena[0]] for e in ll] + ll)
@@ -80,7 +80,7 @@ def checar_funcion(n):
 	funcion()
 	main()
 
-def main_aux()
+def main_aux():
 	print("¿Deseas continuar? S/n")
 	z = input()
 	z.lower()
