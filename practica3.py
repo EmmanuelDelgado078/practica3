@@ -16,7 +16,7 @@ def condensa(cadena):
 			cadena = cadena.replace(cadena[0], "", ocurrencias)
 			ocurrencias = 0
 		for i in range(len(lista)):
-		print(lista)
+		print(lista[i])
 	else:
 		print([])
 
