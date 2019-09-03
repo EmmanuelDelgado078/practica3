@@ -17,14 +17,30 @@ def condensa(cadena):
 			ocurrencias = 0
 		for i in range(len(lista)):
 		print(lista[i])
+
 	else:
 		print([])
 
 def triangulo_pascal(niveles):
-    lista = []
-    lista.append()
+	if niveles > 0:
+	    if niveles == 0:
+	        return []
+	    elif niveles == 1:
+	        return [[1]]
+	    else:
+	        lista_1 = [1]
+	        resultado = triangulo_pascal(niveles-1)
+	        lista_2 = resultado[-1]
+	        for i in range(len(lista_2)-1):
+	            lista_1.append(lista_2[i] + lista_2[i+1])
+	        lista_1 += [1]
+	        resultado.append(lista_1)
+	    return resultado
+	else:
+		print("No existen niveles negativos")
 
 def subcadenas(cadena):
+
 	if cadena == []:
 		return [[]]
 	ll = lattice(cadena[1:])
@@ -60,18 +76,20 @@ def checar_funcion(n):
 		3: triangulo_s,
 		4: subcadenas_s
 	}
+
 	funcion = switcher.get(n, "Por favor ingresa un numero valido")
+
 	#funcion = switcher[n]
 	funcion()
 	main()
 
 def main():
-	print("\nBienvenido al programa")
-	print("Por favor ingresa el numero que corresponda a la funcion que quieres utilizar\n\n")
-	print("1. Mas repetido: esta funcion encuentra el valor que mas repeticiones tiene en una matriz. Si dos numeros aparecen la misma cantidad de veces, devuelve el que aparece primero\n\n")
-	print("2. Condensa: Esta funcion devuelve una lista con la letra y la cantidad de veces que aparece\n\n")
-	print("3. Triangulo de pascal: esta funcion delvuelve una lista con los niveles del triangulo de pascal\n\n")
-	print("4. subcadenas: Esta funcion devuelve una lista con la cadena dividida en subcadenas de tamano i\n\n")
+	print("\n¡Bienvenido al programa!")
+	print("Por favor ingresa el número que corresponda a la función que quieres utilizar\n\n")
+	print("1. Más repetido: esta función encuentra el valor que más repeticiones tiene en una matriz. Si dos números aparecen la misma cantidad de veces, devuelve el que aparece primero\n\n")
+	print("2. Condensa: Esta función devuelve una lista con la letra y la cantidad de veces que aparece\n\n")
+	print("3. Triangulo de pascal: esta función delvuelve una lista con los niveles del triangulo de pascal\n\n")
+	print("4. subcadenas: Esta función devuelve una lista con la cadena dividida en subcadenas de tamaño i\n\n")
 	z = int(input())
 	checar_funcion(z)
 
